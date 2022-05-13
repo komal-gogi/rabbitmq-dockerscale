@@ -1,0 +1,12 @@
+version: "3.9" 
+services:
+  consumer:
+    build: 
+      context: consumer
+      dockerfile: Dockerfile
+    image: consumer:v1
+    environment: 
+      amqp_url: 'amqp://devrabbit.centralus.cloudapp.azure.com'
+    deploy:
+      replicas: 2
+    restart: unless-stopped
